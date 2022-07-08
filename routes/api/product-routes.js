@@ -14,8 +14,16 @@ router.get("/", (req, res) => {
       {
         model: Category,
         attributes: ["id"],
+        // through: Category,
+        // as: "category_id",
       },
       //////////// I am not sure how to do the tags with it being multiples possible
+      {
+        model: Tag,
+        attributes: ["id", "tag_name"],
+        through: ProductTag,
+        as: "prod_tag",
+      },
     ],
   })
     .then((dbGetData) => res.json(dbGetData))
@@ -34,13 +42,16 @@ router.get("/:id", (req, res) => {
       id: req.params.id,
     },
     attributes: ["id", "product_name", "price", "stock"],
-    include: [
-      // include the foreign key model here:
-      {
-        model: Category,
-        attributes: ["id"],
-      },
-      //////////// I am not sure how to do the tags with it being multiples possible
+    // include: Category,
+    include:[
+    // include the foreign key model here:
+    {
+      model: Category,
+      attributes: ["id"],
+      // through: Category,
+      // as: "category_id",
+    },
+    ////////// I am not sure how to do the tags with it being multiples possible
     ],
   })
     .then((dbGetData) => {
@@ -70,6 +81,7 @@ router.post("/", (req, res) => {
     product_name: req.body.product_name,
     price: req.body.price,
     stock: req.body.stock,
+    category_id: req.body.category(id),
   })
     .then((product) => {
       // if there's product tags, we need to create pairings to bulk create in the ProductTag model
