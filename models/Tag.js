@@ -17,8 +17,6 @@ Tag.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-
-    ////// include the foreign keys here like product_tag and category
   },
   {
     sequelize,

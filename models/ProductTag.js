@@ -30,10 +30,6 @@ ProductTag.init(
         key: "id",
       },
     },
-
-    // prod_tag: {
-    //   type: DataTypes.INTEGER,
-    // },
   },
   {
     sequelize,
