@@ -17,6 +17,10 @@ note: there are seeds available with test data by entering _npm run seed_
 
 ## Demo
 
+
+https://user-images.githubusercontent.com/103005272/178118056-c8717339-dacc-4476-ae0a-9dd31653ac8a.mp4
+
+
 ### Demo online link
 https://drive.google.com/file/d/1DA3bupewWYJUA7hC6eFsApI2P0_WxjNF/view
 
